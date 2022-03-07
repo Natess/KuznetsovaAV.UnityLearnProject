@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,39 +7,57 @@ public class Player : MonoBehaviour
 {
     private Vector3 _direction;
     private float _speed = 5f;
-    private bool inJump;
+    private bool _inJump;
+    private float _speedRotate = 200f;
+    
+    public Transform Target;
+
+    #region Abilities
+
+    private Ability1 _ability1;
+
+    #endregion
 
     private void FixedUpdate()
     {
         Move(Time.fixedDeltaTime);
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * _speedRotate * Time.fixedDeltaTime, 0));
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        _direction.z = -Input.GetAxis("Horizontal");
-        _direction.x = Input.GetAxis("Vertical");
+        _direction.x = Input.GetAxis("Horizontal");
+        _direction.z = Input.GetAxis("Vertical");
 
-        if(Input.GetKeyDown(KeyCode.Space) && !inJump)
+        if(Input.GetKeyDown(KeyCode.Space) && !_inJump)
         {
-            inJump = true;
+            _inJump = true;
             GetComponent<Rigidbody>().AddForce(new Vector3(0, 200, 0));
+        }
+
+        if (_ability1!=null && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            _ability1.Use();
+        }
+    }
+
+    internal void AddItem(GameObject gameObject)
+    {
+        if (gameObject.name == "Ability1")
+        {
+            _ability1 = gameObject.GetComponent<Ability1>();
+            print("Теперь вы можете стрелять по левой кнопке мыши.");
         }
     }
 
     private void Move(float delta)
     {
-        transform.position += _direction * _speed * delta;
+        var fixedDirection = transform.TransformDirection(_direction.normalized);
+        transform.position += fixedDirection * _speed * delta;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        inJump = false;
+        _inJump = false;
     }
 }
