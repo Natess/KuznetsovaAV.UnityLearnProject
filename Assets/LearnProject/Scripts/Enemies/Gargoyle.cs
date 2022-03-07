@@ -34,7 +34,7 @@ public class Gargoyle : MonoBehaviour, ITakeDamage
                 timer -= Time.fixedDeltaTime;
             else
             {
-                timer = 3;
+                timer = 2;
                 Fire();
             }
         }

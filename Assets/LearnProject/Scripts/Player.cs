@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     #region Abilities
 
+    public bool HaveAbility1 { get => _ability1 != null; }
     private Ability1 _ability1;
 
     #endregion
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour
         {
             _ability1 = gameObject.GetComponent<Ability1>();
             print("Теперь вы можете стрелять по левой кнопке мыши.");
+        }
+        if (gameObject.CompareTag("Charge1"))
+        {
+            _ability1.AddCharges(gameObject.GetComponent<Ability1Charge>());
         }
     }
 
