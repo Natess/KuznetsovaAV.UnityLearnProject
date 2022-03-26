@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Charge1
+  - Floor
+  - Box
   layers:
   - Default
   - TransparentFX
