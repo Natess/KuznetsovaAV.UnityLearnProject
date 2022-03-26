@@ -8,28 +8,13 @@ public class EnemiesSpawner : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     private float timer;
 
-    //private bool _isSpawned;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         //if( !_isSpawned )
         //{
         //    _isSpawned = true;
         if (timer > 0)
-            timer -= Time.deltaTime;
+            timer -= Time.fixedDeltaTime;
         else
         {
             timer = 3;
