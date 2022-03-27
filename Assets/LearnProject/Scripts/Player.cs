@@ -22,9 +22,16 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    #region Inventory
+
+    public List<GameObject> Inventory { get; private set; }
+
+    #endregion
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        Inventory = new List<GameObject>();
     }
 
     private void FixedUpdate()
@@ -52,6 +59,12 @@ public class Player : MonoBehaviour
         if (gameObject.CompareTag("Charge1"))
         {
             _ability1.AddCharges(gameObject.GetComponent<Ability1Charge>());
+        }
+
+        if(gameObject.name == "FirstKey")
+        {
+            Inventory.Add(gameObject);
+            print("У вас есть первый ключ.");
         }
     }
 

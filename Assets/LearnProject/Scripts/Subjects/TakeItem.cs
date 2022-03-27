@@ -13,13 +13,15 @@ public class TakeItem : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    public virtual void OnTriggerStay(Collider other)
     {
         if (enabled && other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Q))
         {
             other.GetComponent<Player>().AddItem(gameObject);
             enabled = false;
             //Destroy(gameObject);
+            gameObject.SetActive(false);
+
         }
     }
 }
