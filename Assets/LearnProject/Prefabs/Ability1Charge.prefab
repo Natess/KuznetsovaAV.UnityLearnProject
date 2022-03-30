@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2105241191920193985, guid: 0dfb7df95aa122644aca74109f00b0c2,
         type: 3}
       propertyPath: m_Name
-      value: Ability1Charge (1)
+      value: Ability1Charge
       objectReference: {fileID: 0}
     - target: {fileID: 2105241191920193985, guid: 0dfb7df95aa122644aca74109f00b0c2,
         type: 3}
