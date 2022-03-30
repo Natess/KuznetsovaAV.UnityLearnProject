@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Box : MonoBehaviour, ITakeDamage
 {
-
     [SerializeField] private int _lifePoint;
 
     public void TakeDamage(int damage)

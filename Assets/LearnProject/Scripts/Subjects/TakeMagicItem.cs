@@ -1,14 +1,17 @@
-using System.Collections;
+п»їusing System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 
-public class TakeItem : MonoBehaviour
-{ 
+public class TakeMagicItem : MonoBehaviour
+{
     private void OnTriggerEnter(Collider other)
     {
         if (enabled && other.gameObject.CompareTag("Player"))
         {
-            print("Чтобы подобрать предмет нажмите Q!");
+            print("Р§С‚РѕР±С‹ РїРѕРґРѕР±СЂР°С‚СЊ РїСЂРµРґРјРµС‚ РЅР°Р¶РјРёС‚Рµ Q!");
         }
     }
 
@@ -16,10 +19,9 @@ public class TakeItem : MonoBehaviour
     {
         if (enabled && other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Q))
         {
-            other.GetComponent<Player>().AddItem(gameObject);
-            enabled = false; 
+            other.GetComponent<Player>().AddMagicItem(gameObject);
+            enabled = false;
             gameObject.SetActive(false);
-
         }
     }
 }
