@@ -8,7 +8,7 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
         var player = Component.FindObjectOfType<Player>();
-        transform.position = player.transform.position + new Vector3(0, 1, 0);//new Vector3(-1f, 2, 0);
-        transform.rotation = player.transform.rotation;//new Quaternion(player.transform.rotation.x, 90, 0, 0);
+        transform.position = player.transform.position + new Vector3(0, 1, 0) + player.transform.forward * 0.15f; 
+        transform.rotation = player.transform.rotation; 
     }
 }
