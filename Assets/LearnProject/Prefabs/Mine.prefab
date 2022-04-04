@@ -93,12 +93,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4011042878219625164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c62c407c462fe44388e62b43ce74e15, type: 3}
+  m_Script: {fileID: 11500000, guid: 565d1cca1e10db24cba86abd10028a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
   _radius: 3
-  _lifeTime: 3
+  _lifeTime: 5
+  _force: 100
 --- !u!135 &7559497999037579422
 SphereCollider:
   m_ObjectHideFlags: 0

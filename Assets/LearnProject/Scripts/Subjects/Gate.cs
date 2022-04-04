@@ -13,11 +13,16 @@ public class Gate : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        GameplayInterface.ShowMessageInRightUpCorner("Если у вас есть ключ нажмите Q, чтобы открыть ворота.", 2);
+    }
+
     private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("Если у вас есть ключ нажмите Q, чтобы открыть ворота.");
+
             if (Input.GetKeyDown(KeyCode.Q) 
                 && collision.gameObject.GetComponent<Player>().Inventory.Exists("FirstKey"))
             {

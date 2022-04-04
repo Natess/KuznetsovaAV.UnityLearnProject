@@ -9,7 +9,7 @@ public class FirstAbilitySphere : MonoBehaviour
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _speed;
-    [SerializeField] private float _force = 3;
+    //[SerializeField] private float _force = 3;
     private Rigidbody _rigidbody;
 
     private void Awake()

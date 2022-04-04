@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StalkerEnemy : MonoBehaviour
+public class StalkerEnemy : MonoBehaviour, ITakeDamage
 {
 
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private bool _isFire = true;
+    [SerializeField] private int _lifePoint;
     [SerializeField] private float _cooldown;
     private int _timeNotSeePlayer = 3;
     private bool _isStalkering = false;
@@ -77,5 +78,15 @@ public class StalkerEnemy : MonoBehaviour
     private void Reloading()
     {
         _isFire = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _lifePoint -= damage;
+        if (_lifePoint < 0)
+        {
+            print("Враг убит!");
+            Destroy(gameObject);
+        }
     }
 }

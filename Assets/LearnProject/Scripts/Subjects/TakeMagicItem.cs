@@ -11,7 +11,7 @@ public class TakeMagicItem : MonoBehaviour
     {
         if (enabled && other.gameObject.CompareTag("Player"))
         {
-            print("Чтобы подобрать предмет нажмите Q!");
+            GameplayInterface.ShowMessageInRightUpCorner("Чтобы подобрать предмет нажмите Q!", 1);
         }
     }
 
