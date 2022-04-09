@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float _speed;
+    [SerializeField] private float _damage = 3;
 
     public void Init(Transform targer, float lifeTime, float speed)
     {
@@ -23,7 +24,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("Àó÷!");
+            var player = collision.gameObject.GetComponent<ITakeDamage>();
+            player.TakeDamage(3);
             Destroy(gameObject);
         }
     }

@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LearnProject/Scenes/MainMenu.unity
+    guid: 873ae32ded9bc2d48bc9df2842f1bfa2
+  - enabled: 1
+    path: Assets/LearnProject/Scenes/PauseMenu.unity
+    guid: e0da7523e0faae842bd5142b8a5147d0
+  - enabled: 1
+    path: Assets/LearnProject/Scenes/Level1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/LearnProject/Scenes/Level2.unity
+    guid: 75aecfe670358564fa1ecbcd8a2f13ba
   m_configObjects: {}

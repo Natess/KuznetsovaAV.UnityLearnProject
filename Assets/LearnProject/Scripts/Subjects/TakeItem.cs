@@ -8,7 +8,7 @@ public class TakeItem : MonoBehaviour
     {
         if (enabled && other.gameObject.CompareTag("Player"))
         {
-            print("Чтобы подобрать предмет нажмите Q!");
+            GameplayInterface.ShowMessageInRightUpCorner("Чтобы подобрать предмет нажмите Q!", 1);
         }
     }
 
@@ -16,6 +16,7 @@ public class TakeItem : MonoBehaviour
     {
         if (enabled && other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Q))
         {
+            GameplayInterface.ShowMessageInRightUpCorner("Вы подобрали предмет", 2);
             other.GetComponent<Player>().AddItem(gameObject);
             enabled = false; 
             gameObject.SetActive(false);

@@ -18,10 +18,10 @@ public class FirstAbilityCharge : MonoBehaviour
             var player = other.GetComponent<Player>();
             if(!player.MagicBook.HaveFirstAbility)
             {
-                print("” вас нет первой способоности!");
+                GameplayInterface.ShowMessageInRightUpCorner("” вас нет первой способоности!", 1);
                 return;
             }
-            print($"¬ы подобрали {Count} зар€д(ов) дл€ первой способности!");
+            //print($"¬ы подобрали {Count} зар€д(ов) дл€ первой способности!");
             player.AddMagicItem(gameObject);
             Destroy(gameObject);
         }

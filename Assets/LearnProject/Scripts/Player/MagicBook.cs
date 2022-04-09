@@ -18,7 +18,9 @@ namespace Assets.LearnProject.Player
             {
                 FirstAbility = gameObject.GetComponent<FirstAbility>();
                 HaveFirstAbility = true;
-                Console.WriteLine("Теперь вы можете стрелять по левой кнопке мыши.");
+                //Console.WriteLine("Теперь вы можете стрелять по левой кнопке мыши.");
+                GameplayInterface.ShowMessageInRightUpCorner("Теперь вы можете стрелять по левой кнопке мыши", 3);
+                GameplayInterface.FirstAbilityChargeIndicateOn();
             }
             if (gameObject.CompareTag("Charge1"))
             {

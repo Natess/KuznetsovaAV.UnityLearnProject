@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITakeDamage
 {
     private Vector3 _direction;
     private bool _inJump;
@@ -12,9 +12,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedRotate = 200f;
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private Animator _animator;
+
+
     private readonly int IsWalking = Animator.StringToHash("IsWalking");
     private readonly int InJump = Animator.StringToHash("InJump");
 
+    public HealthBar HealthBar;
     private Rigidbody _rb;
     public Transform Target;
 
@@ -28,6 +31,8 @@ public class Player : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
+        HealthBar = GetComponent<HealthBar>();// (this, 20);
+        HealthBar.Init(this, 30);
         Inventory = new Inventory();
         MagicBook = new MagicBook();
     }
@@ -97,5 +102,15 @@ public class Player : MonoBehaviour
             _animator.SetBool(InJump, false);
             _inJump = false;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        HealthBar.TakeDamage(damage);
+    }
+
+    internal void PlayerDies()
+    {
+        GameplayInterface.PlayerDies();
     }
 }

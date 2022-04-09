@@ -16,8 +16,8 @@ public class Mine : MonoBehaviour
         if (_lifeTime < 0)
         {
             //Взрыв с ракидыванием
-            var ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(transform.position, transform.forward);
+            var ray = new Ray(transform.position, -transform.up);
+            Debug.DrawRay(transform.position, -transform.up);
 
             if (Physics.Raycast(ray, out RaycastHit hit, _radius))
             {

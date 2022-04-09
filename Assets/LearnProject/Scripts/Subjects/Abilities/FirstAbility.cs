@@ -18,6 +18,7 @@ public class FirstAbility : TakeMagicItem
             var ability1Sphere = Instantiate(_prefab, _spawnPoint.position, _spawnPoint.rotation);
             ability1Sphere.GetComponent<FirstAbilitySphere>().Init(4, 2f, 5);
             --_charges;
+            GameplayInterface.FirstAbilityChargeIndicateSetChargeCount(_charges);
         }
         else
         {
@@ -28,6 +29,7 @@ public class FirstAbility : TakeMagicItem
     internal void AddCharges(FirstAbilityCharge ability1Charge)
     {
         _charges += ability1Charge.Count;
-        print($"У вас {_charges} заряда(ов)!");
+        //print($"У вас {_charges} заряда(ов)!");
+        GameplayInterface.FirstAbilityChargeIndicateSetChargeCount(_charges);
     }
 }
