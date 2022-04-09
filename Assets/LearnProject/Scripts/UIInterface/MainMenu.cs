@@ -12,6 +12,6 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         _exitGameButton.onClick.AddListener(() => { Application.Quit(); });
-        _startGameButton.onClick.AddListener(() => { SceneManager.LoadScene(2); });
+        _startGameButton.onClick.AddListener(() => { SceneManager.LoadScene(1); });
     }
 }
