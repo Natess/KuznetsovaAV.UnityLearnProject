@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Fail : MonoBehaviour
+public class Fail 
 {
     private static bool _isDead;
-
-    private void Awake()
-    {
-        _isDead = false;
-    }
 
     internal void PlayerDies()
     {
