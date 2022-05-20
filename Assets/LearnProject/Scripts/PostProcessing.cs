@@ -33,8 +33,6 @@ public class PostProcessing : MonoBehaviour
         {
             autoExposure.maxLuminance.value += part;
             autoExposure.minLuminance.value += part;
-            print(part);
-            print(autoExposure.maxLuminance.value);
         }
 
     }
@@ -54,6 +52,5 @@ public class PostProcessing : MonoBehaviour
     private void OnTriggerExit()
     {
         isStart = true;
-        print("exit----------------------------------------------");
     }
 }

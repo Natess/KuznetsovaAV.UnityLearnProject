@@ -44,7 +44,6 @@ public class Player : MonoBehaviour, ITakeDamage
 
     void Update()
     {
-
         if (MagicBook.HaveFirstAbility && Input.GetKeyDown(KeyCode.Mouse0))
         {
             MagicBook.FirstAbility.Use();
